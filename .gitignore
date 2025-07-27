@@ -1,0 +1,10 @@
+/site/.phpunit.cache
+/site/public/build
+/site/public/hot
+/site/public/storage
+/site/storage/*.key
+/site/vendor
+/site/.env
+/site/.phpunit.result.cache
+/site/.idea
+/site/.vscode

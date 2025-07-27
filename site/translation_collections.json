@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "4504653b-773a-4da6-b85d-3b1e5b28ea53",
+		"name": "Translations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "849924"
+	},
+	"item": [
+		{
+			"name": "[POST] Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"aniya93@example.org\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://translation-api.local.com/api/login",
+					"protocol": "https",
+					"host": [
+						"translation-api",
+						"local",
+						"com"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[POST] Translations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"key\": \"greeting.hello\",\n  \"translations\": {\n    \"en\": \"Hello\",\n    \"fr\": \"Bonjour\",\n    \"es\": \"Hola\"\n  },\n  \"tags\": [1, 2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://translation-api.local.com/api/translations",
+					"protocol": "https",
+					"host": [
+						"translation-api",
+						"local",
+						"com"
+					],
+					"path": [
+						"api",
+						"translations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[PUT] Translations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"translations\": {\n    \"en\": \"Hi there\",\n    \"fr\": \"Salut\"\n  },\n  \"tags\": [1,2]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://translation-api.local.com/api/translations/key/greeting.hello",
+					"protocol": "https",
+					"host": [
+						"translation-api",
+						"local",
+						"com"
+					],
+					"path": [
+						"api",
+						"translations",
+						"key",
+						"greeting.hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] Translations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://translation-api.local.com/api/translations/key/:key",
+					"protocol": "https",
+					"host": [
+						"translation-api",
+						"local",
+						"com"
+					],
+					"path": [
+						"api",
+						"translations",
+						"key",
+						":key"
+					],
+					"variable": [
+						{
+							"key": "key",
+							"value": "greeting.hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] Search Translation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://translation-api.local.com/api/translations?key=greeting.hello&tags=web&content=bon",
+					"protocol": "https",
+					"host": [
+						"translation-api",
+						"local",
+						"com"
+					],
+					"path": [
+						"api",
+						"translations"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "greeting.hello"
+						},
+						{
+							"key": "tags",
+							"value": "web"
+						},
+						{
+							"key": "content",
+							"value": "bon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "[GET] Export",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://translation-api.local.com/api/translations/exports?locale=fr",
+					"protocol": "https",
+					"host": [
+						"translation-api",
+						"local",
+						"com"
+					],
+					"path": [
+						"api",
+						"translations",
+						"exports"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "fr"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

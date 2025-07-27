@@ -60,11 +60,13 @@ This project is an API built using Laravel for managing application translations
    ```bash
    docker exec translation-api php artisan key:generate
    ```
-8. Run migrations and seed database:
+8. Run migrations and seed database: 
    ```bash
    docker exec translation-api php artisan migrate:fresh --seed
    ```
-9. Use Postman collection to test the API.
+
+9.  Check the users table and use for login (if needed), the password is `password` only for now.
+10. Import Postman collection from root folder to test the API.
 
 ## Technical Decisions and Design Choices
 
